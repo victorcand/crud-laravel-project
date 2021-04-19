@@ -12,7 +12,6 @@
 
 .card{
     margin: 20px;
-    padding: 20px;
     background-color: rgb(235, 235, 235);
     box-shadow: 1px 1px 2px 1px #6868688a;
     flex-basis: 30%;
@@ -47,8 +46,14 @@ input,textarea{
 
 
 .msg-format{
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-self: center;
-    margin: 2px;
+}
+
+.section-conteudo{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 105px);
+    
 }

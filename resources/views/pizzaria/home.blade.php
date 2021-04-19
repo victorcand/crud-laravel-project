@@ -3,7 +3,7 @@
 @section('title') CRUD Pizzas @endsection
 
 @section('conteudo')
-
+    <section class="section-conteudo">
     <div class="msg-format">
         @if (!empty($mensagemDelete))
             <div class="msg-success">
@@ -19,7 +19,7 @@
             </div>
         @endif
     </div>
-    <section class="conteudo-home">
+    <div class="conteudo-home">
 
         @foreach ($pizzas as $pizza)
 
@@ -51,6 +51,6 @@
 
         @endforeach
 
-    </section>
-
+        </div>
+</section>
 @endsection

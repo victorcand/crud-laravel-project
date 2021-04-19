@@ -45,10 +45,8 @@ body{
 
 .principal{
     grid-area: principal;
-    height: calc (100vh - 120px);
     background-color: #ffffff; 
-    display: flex;
-    flex-direction: column;
+    
 }
 
 .conteudo-form{
@@ -63,8 +61,7 @@ body{
 
 .conteudo-home{
     position: relative;
-    height: calc (100vh - 130px);
-    padding: 20px;
+    height: calc(100vh - 105px);
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
@@ -84,7 +81,7 @@ body{
 .msg-success{
     text-align: center;
     color: #000000;
-    padding: 5px;
+    padding: 4px;
     border: 1px solid #004e23d7;
     background-color: rgba(102, 255, 102, 0.466);
 }
