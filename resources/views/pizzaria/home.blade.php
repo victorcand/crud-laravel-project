@@ -5,13 +5,20 @@
 @section('conteudo')
 
     <div class="msg-format">
-        @if (!empty($mensagem))
+        @if (!empty($mensagemDelete))
             <div class="msg-success">
-                {{ $mensagem }}
+                {{ $mensagemDelete }}
             </div>
         @endif
     </div>
 
+    <div class="msg-format">
+        @if ($mensagemInfo)
+            <div class="msg-info">
+                {{ $mensagemInfo }}
+            </div>
+        @endif
+    </div>
     <section class="conteudo-home">
 
         @foreach ($pizzas as $pizza)
@@ -30,7 +37,7 @@
 
                 </div>
                 <form method="POST" action="/pizzaria/{{ $pizza->id }}" onsubmit="return confirm(
-                                'Tem certeza que deseja excluir a pizza {{ addslashes($pizza->pizza_name) }}?')">
+                                    'Tem certeza que deseja excluir a pizza {{ addslashes($pizza->pizza_name) }}?')">
                     @csrf
                     @method('DELETE')
 

@@ -17,9 +17,12 @@ class PizzaController extends Controller
      */
     public function index(Request $request)
     {
-        PizzaRepository::validateIfHasPizzaInDatabase($request);
+        $pizzas = PizzaRepository::validateIfHasPizzaInDatabase($request);
+        
+        $mensagemDelete = $request->session()->get('mensagemDelete');
+        $mensagemInfo = $request->session()->get('mensagemInfo');
 
-        return View::make('pizzaria.home', compact('pizzas','mensagem'));
+        return View::make('pizzaria/home', compact('pizzas','mensagemDelete','mensagemInfo'));
     }
 
     /**
@@ -33,7 +36,7 @@ class PizzaController extends Controller
 
         $mensagemErro = $request->session()->get('mensagemErro');
 
-        return View::make('pizzaria.create', compact('mensagem','mensagemErro'));
+        return View::make('pizzaria/create', compact('mensagem','mensagemErro'));
     }
 
     /**
@@ -46,7 +49,7 @@ class PizzaController extends Controller
     {
         PizzaRepository::validatePizzaFields($request);
 
-        return redirect('pizzaria/criar');
+        return redirect('pizzaria/create');
     }
 
     /**
@@ -94,10 +97,7 @@ class PizzaController extends Controller
         DB::table('pizzas')->where('id',$request->id)->delete();
 
         $request->session()
-            ->flash(
-                'mensagem',
-                'Pizza excluída com sucesso!'
-            );
+            ->flash('mensagemDelete','Pizza excluída com sucesso!');
     
 
         return redirect('/pizzaria');

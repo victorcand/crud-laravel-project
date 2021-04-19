@@ -47,7 +47,8 @@ input,textarea{
 
 
 .msg-format{
-    position: absolute;
+    display: flex;
+    flex-direction: column;
     align-self: center;
     margin: 2px;
 }

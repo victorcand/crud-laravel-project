@@ -20,6 +20,6 @@ Route::get('/', function () {
 
 // Route::resource('/pizzaria', PizzaController::class);
 Route::get('/pizzaria', [PizzaController::class,'index']);
-Route::get('/pizzaria/criar', [PizzaController::class,'create']);
-Route::post('/pizzaria/criar',[PizzaController::class, 'store']);
+Route::get('/pizzaria/create', [PizzaController::class,'create']);
+Route::post('/pizzaria/create',[PizzaController::class, 'store']);
 Route::delete('/pizzaria/{id}',[PizzaController::class, 'destroy']);

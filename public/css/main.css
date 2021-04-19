@@ -45,7 +45,7 @@ body{
 
 .principal{
     grid-area: principal;
-    height: calc (100vh - 110px);
+    height: calc (100vh - 120px);
     background-color: #ffffff; 
     display: flex;
     flex-direction: column;
@@ -63,7 +63,7 @@ body{
 
 .conteudo-home{
     position: relative;
-    height: calc(100vh - 105px);
+    height: calc (100vh - 130px);
     padding: 20px;
     overflow-y: scroll;
     display: flex;
