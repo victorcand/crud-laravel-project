@@ -42,7 +42,7 @@
                     @method('DELETE')
 
                     <div class="form-row">
-                        <button class="btn btn-danger">Excluir</button>
+                        <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
                     </div>
 
                 </form>

@@ -14,12 +14,16 @@
                     {{ $mensagem }}
                 </div>
             @endif
-            @if (!empty($mensagemErro))
+        
+            @if ($errors->any())
                 <div class="msg-danger">
-                    {{ $mensagemErro }}
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                           <p> {{ $error }} </p>
+                        @endforeach
+                    </ul>
                 </div>
             @endif
-            
 
             <h2>Cadastro de Pizza</h2>
             <form method="post" class="form-group">

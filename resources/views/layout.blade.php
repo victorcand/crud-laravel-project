@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{{ asset('css/all.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/21acc6edcc.js" crossorigin="anonymous"></script>
     <title>@yield('title')</title>
 </head>
 

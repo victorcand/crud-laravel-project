@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pizzas;
 use App\Repositories\PizzaRepository;
+use App\Service\PizzaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
 class PizzaController extends Controller
@@ -47,7 +48,7 @@ class PizzaController extends Controller
      */
     public function store(Request $request)
     {
-        PizzaRepository::validatePizzaFields($request);
+        PizzaService::validatePizzaFields($request);
 
         return redirect('pizzaria/create');
     }
