@@ -1,0 +1,132 @@
+*{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    text-decoration: none;
+    border: none;
+    background-color: none;
+    padding: 0;
+    margin: 0;
+}
+
+h2{
+    margin: 10px 0px;
+}
+
+img{
+    width: 140px;
+    margin-left: 5px;
+}
+
+a{
+    margin: 10px;
+}
+
+body{
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 70px 1fr 35px;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "cabecalho"
+    "principal" 
+    "rodape";
+}
+
+.cabecalho{
+    grid-area: cabecalho;
+    background-color: #00263f;
+}
+
+.principal{
+    grid-area: principal;
+    height: calc (100vh - 110px);
+    background-color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+}
+
+.conteudo-form{
+    position: relative;
+    height: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-home{
+    position: relative;
+    height: calc(100vh - 105px);
+    padding: 20px;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.rodape{
+    grid-area: rodape;
+    background-color: #00263f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(205, 233, 255);
+    
+}
+
+.msg-success{
+    text-align: center;
+    color: #000000;
+    padding: 5px;
+    border: 1px solid #004e23d7;
+    background-color: rgba(102, 255, 102, 0.466);
+}
+
+.msg-danger{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #4e0000d7;
+    background-color: rgba(255, 24, 24, 0.466);
+}
+
+.msg-info{
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #020f57d7;
+    background-color: rgba(0, 140, 255, 0.466);
+}
+
+.btn{
+    color: #ffffff;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.btn-success{
+    background-color: green;
+    border: 1px solid green;
+    border-radius: 5px;
+}
+
+.btn-danger{
+    background-color: rgba(255, 0, 0, 0.384);
+    border: 1px solid rgba(136, 0, 0, 0.726);
+    border-radius: 5px;
+}
+
+.btn-info{
+    background-color: rgba(0, 68, 255, 0.411);
+    border: 1px solid rgb(0, 21, 116);
+    border-radius: 5px;
+}
