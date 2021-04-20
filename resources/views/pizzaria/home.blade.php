@@ -22,7 +22,6 @@
     <div class="conteudo-home">
 
         @foreach ($pizzas as $pizza)
-
             <div class="card">
                 <div class="form-control">
 

@@ -18,9 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::resource('/pizzaria', PizzaController::class);
 
-Route::get('/pizzaria', [PizzaController::class,'index']);
-Route::get('/pizzaria/create', [PizzaController::class,'create']);
-Route::post('/pizzaria/create',[PizzaController::class, 'store']);
-Route::delete('/pizzaria/{id}',[PizzaController::class, 'destroy']);
+Route::get('/pizzaria', [PizzaController::class,'index'])->name('list_pizzas');
+Route::get('/pizzaria/create', [PizzaController::class,'create'])->name('form_pizza');
+Route::post('/pizzaria/create',[PizzaController::class, 'store'])->name('create_pizza');
+Route::delete('/pizzaria/{id}',[PizzaController::class, 'destroy'])->name('delete_pizza');

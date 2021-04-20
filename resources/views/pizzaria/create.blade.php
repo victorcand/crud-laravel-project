@@ -42,7 +42,7 @@
                     <textarea name="pizza_description" cols="30" rows="5"></textarea>
                 </div>
                 <div class="form-row">
-                    <a href="/pizzaria" class="btn btn-success">Voltar</a>
+                    <a href="{{ route('list_pizzas') }}" class="btn btn-success">Voltar</a>
                     <button class="btn btn-success">Cadastrar</button>
                 </div>
             </form>

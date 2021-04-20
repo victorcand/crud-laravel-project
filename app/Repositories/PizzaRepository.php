@@ -8,22 +8,24 @@ use Illuminate\Support\Facades\DB;
 
 class PizzaRepository
 {
-    
 
-    public static function validateIfHasPizzaInDatabase($request): ?Collection
+
+    public static function getListPizzasInDatabase(): ?Collection
     {
-        $pizzas = DB::table('pizzas')->orderBy('id','desc')->get();
+        return Pizzas::get()->sortByDesc('id');
 
-        if(count($pizzas) == 0){
-           $mensagemInfo = $request->session()->flash('mensagemInfo', 'Não há pizza cadastrada!');
-        }
-
-        return $pizzas;
     }
 
     public static function createPizza($request)
     {
         Pizzas::create($request->all());
         return $request->session()->flash('mensagem', 'Cadastro realizado com sucesso!');
+
+    }
+
+    public static function deletePizza($request)
+    {
+        return (new Pizzas())->where('id', $request->id)->delete();
+
     }
 }

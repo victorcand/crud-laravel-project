@@ -19,8 +19,8 @@
             <div class="nav-right">
                 <div class="nav-btn">
 
-                    <a href="/pizzaria" class="btn-nav btn-info">Lista de Pizzas</a>
-                    <a href="/pizzaria/create" class="btn-nav btn-info">Cadastrar Pizza</a>
+                    <a href="{{ route('list_pizzas') }}" class="btn-nav btn-info">Lista de Pizzas</a>
+                    <a href="{{ route('form_pizza') }}" class="btn-nav btn-info">Cadastrar Pizza</a>
 
                 </div>
                 <div class="nav-search">

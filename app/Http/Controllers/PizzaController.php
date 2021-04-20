@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PizzasFormRequest;
-use App\Repositories\PizzaRepository;
+use App\Http\Requests\PizzaRequest;
 use App\Service\PizzaService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
 class PizzaController extends Controller
@@ -19,12 +16,14 @@ class PizzaController extends Controller
      */
     public function index(Request $request)
     {
-        $pizzas = PizzaRepository::validateIfHasPizzaInDatabase($request);
+        $pizzasDatabase = new PizzaService();
+        $pizzas = $pizzasDatabase->getListPizzas($request);
         
         $mensagemDelete = $request->session()->get('mensagemDelete');
         $mensagemInfo = $request->session()->get('mensagemInfo');
 
         return View::make('pizzaria/home', compact('pizzas','mensagemDelete','mensagemInfo'));
+
     }
 
     /**
@@ -39,6 +38,7 @@ class PizzaController extends Controller
         $mensagemErro = $request->session()->get('mensagemErro');
 
         return View::make('pizzaria/create', compact('mensagem','mensagemErro'));
+
     }
 
     /**
@@ -47,11 +47,13 @@ class PizzaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PizzasFormRequest $request)
+    public function store(PizzaRequest $request)
     {
-        PizzaRepository::createPizza($request);
+        $pizza = new PizzaService();
+        $pizza->createPizzaByForm($request);
 
-        return redirect('pizzaria/create');
+        return redirect()->route('list_pizzas');
+
     }
 
     /**
@@ -63,6 +65,7 @@ class PizzaController extends Controller
     public function show($id)
     {
         return "show";
+
     }
 
     /**
@@ -74,6 +77,7 @@ class PizzaController extends Controller
     public function edit($id)
     {
         return "edit";
+
     }
 
     /**
@@ -86,6 +90,7 @@ class PizzaController extends Controller
     public function update(Request $request, $id)
     {
         return "update";
+
     }
 
     /**
@@ -96,13 +101,10 @@ class PizzaController extends Controller
      */
     public function destroy(Request $request)
     {
-        DB::table('pizzas')->where('id',$request->id)->delete();
-
-        $request->session()
-            ->flash('mensagemDelete','Pizza excluída com sucesso!');
-    
-
-        return redirect('/pizzaria');
+        $deletePizza = new PizzaService();
+        $deletePizza->deletePizzaInListPizzas($request);
+        
+        return redirect()->route('list_pizzas');
         
     }
 }
