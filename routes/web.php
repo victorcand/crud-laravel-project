@@ -12,14 +12,13 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/pizzaria', [PizzaController::class,'index'])->name('list_pizzas');
-Route::get('/pizzaria/create', [PizzaController::class,'create'])->name('form_pizza');
-Route::post('/pizzaria/create',[PizzaController::class, 'store'])->name('create_pizza');
-Route::delete('/pizzaria/{id}',[PizzaController::class, 'destroy'])->name('delete_pizza');
+Route::get('/pizzaria', [PizzaController::class, 'index'])->name('list_pizzas');
+Route::get('/pizzaria/create', [PizzaController::class, 'create'])->name('form_pizza');
+Route::post('/pizzaria/create', [PizzaController::class, 'store'])->name('create_pizza');
+Route::delete('/pizzaria/{id}', [PizzaController::class, 'destroy'])->name('delete_pizza');

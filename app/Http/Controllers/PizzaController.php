@@ -18,11 +18,11 @@ class PizzaController extends Controller
     {
         $pizzasDatabase = new PizzaService();
         $pizzas = $pizzasDatabase->getListPizzas($request);
-        
+
         $mensagemDelete = $request->session()->get('mensagemDelete');
         $mensagemInfo = $request->session()->get('mensagemInfo');
 
-        return View::make('pizzaria/home', compact('pizzas','mensagemDelete','mensagemInfo'));
+        return View::make('pizzaria/home', compact('pizzas', 'mensagemDelete', 'mensagemInfo'));
 
     }
 
@@ -37,7 +37,7 @@ class PizzaController extends Controller
 
         $mensagemErro = $request->session()->get('mensagemErro');
 
-        return View::make('pizzaria/create', compact('mensagem','mensagemErro'));
+        return View::make('pizzaria/create', compact('mensagem', 'mensagemErro'));
 
     }
 
@@ -103,8 +103,8 @@ class PizzaController extends Controller
     {
         $deletePizza = new PizzaService();
         $deletePizza->deletePizzaInListPizzas($request);
-        
+
         return redirect()->route('list_pizzas');
-        
+
     }
 }
