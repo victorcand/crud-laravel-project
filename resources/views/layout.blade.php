@@ -14,7 +14,7 @@
     <header class="cabecalho">
 
         <div class="nav-bar">
-            <img src="{{ asset('midia/logo-pizzaria.png') }}">
+            <img src="{{ asset('midia/logo-pizzaria-vera.png') }}">
 
             <div class="nav-right">
                 <div class="nav-btn">

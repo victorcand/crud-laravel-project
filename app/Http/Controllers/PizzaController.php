@@ -52,7 +52,7 @@ class PizzaController extends Controller
         $pizza = new PizzaService();
         $pizza->createPizzaByForm($request);
 
-        return redirect()->route('list_pizzas');
+        return redirect()->route('create_pizza');
 
     }
 

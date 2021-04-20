@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Models\Pizzas;
 use App\Repositories\PizzaRepository;
 use Illuminate\Support\Collection;
 
@@ -20,10 +21,11 @@ class PizzaService
         
     }
 
-    public function createPizzaByForm($request)
+    public function createPizzaByForm($request): ?Pizzas
     {
-        return PizzaRepository::createPizza($request);
-
+        PizzaRepository::createPizza($request);
+        return $request->session()->flash('mensagem', 'Cadastro realizado com sucesso!');
+        
     }
 
     public function deletePizzaInListPizzas($request)

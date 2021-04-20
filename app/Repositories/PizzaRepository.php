@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Models\Pizzas;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 
 class PizzaRepository
 {
@@ -16,16 +15,18 @@ class PizzaRepository
 
     }
 
-    public static function createPizza($request)
+    public static function createPizza($request): ?Pizzas
     {
-        Pizzas::create($request->all());
-        return $request->session()->flash('mensagem', 'Cadastro realizado com sucesso!');
-
+        return Pizzas::create($request->all());
+        
     }
 
-    public static function deletePizza($request)
+    public static function deletePizza($request): void
     {
-        return (new Pizzas())->where('id', $request->id)->delete();
+        $pizza = new Pizzas();
+        $pizza->where('id', $request->id)->delete();
 
+        return;
+        
     }
 }
