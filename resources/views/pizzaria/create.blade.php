@@ -9,40 +9,44 @@
 
         <div class="card-form">
 
-            @if (!empty($mensagem))
-                <div class="msg-success">
-                    {{ $mensagem }}
-                </div>
-            @endif
-        
-            @if ($errors->any())
-                <div class="msg-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                           <p> {{ $error }} </p>
-                        @endforeach
-                    </ul>
+            @if (!empty($message))
+                <div class="alert alert-success">
+                    {{ $message }}
                 </div>
             @endif
 
-            <h2>Cadastro de Pizza</h2>
-            <form method="post" class="form-group">
+            @if ($errors->any())
+                <div class="alert alert-danger" role="alert">
+
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+
+                </div>
+            @endif
+
+            <h4 class="fw-bolder text-uppercase ">Cadastro de Pizza</h4>
+            <form method="post">
                 @csrf
 
-                <div class="form-control">
-                    <label for="pizza_name">Nome:</label>
-                    <input type="text" name="pizza_name">
+                <div class="form-floating mb-2">
+                    <input type="text" class="form-control" name="pizza_name" id="floatingInput" placeholder="Nome">
+                    <label for="floatingInput">Nome</label>
                 </div>
-                <div class="form-control">
-                    <label for="pizza_price">Preço:</label>
-                    <input type="number" step="0.1" name="pizza_price">
+                <div class="form-floating mb-2">
+                    <input type="number" step="0.01" name="pizza_price" class="form-control" id="floatingPassword"
+                        placeholder="Preço">
+                    <label for="floatingPassword">Preço</label>
                 </div>
-                <div class="form-control">
-                    <label for="pizza_description">Descrição:</label>
-                    <textarea name="pizza_description" cols="30" rows="5"></textarea>
+
+                <div class="form-floating mb-4">
+                    <textarea class="form-control" cols="30" name="pizza_description"
+                    placeholder="Descreva" id="floatingTextarea"></textarea>
+                    <label for="floatingTextarea">Descrição</label>
                 </div>
-                <div class="form-row">
-                    <a href="{{ route('list_pizzas') }}" class="btn btn-success">Voltar</a>
+
+                <div class="row">
+                    <a href="{{ route('list_pizzas') }}" class="btn btn-success mb-3">Voltar</a>
                     <button class="btn btn-success">Cadastrar</button>
                 </div>
             </form>

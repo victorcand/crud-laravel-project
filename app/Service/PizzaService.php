@@ -38,4 +38,13 @@ class PizzaService
         return;
     }
 
+    public function editPizzaInDatabase($request)
+    {
+        $newName = $request->pizza_name;
+        $newPrice = $request->pizza_price;
+        $newDescription = $request->pizza_description;
+
+        return PizzaRepository::editPizza($request->id, $newName,$newPrice,$newDescription);
+    }
+
 }

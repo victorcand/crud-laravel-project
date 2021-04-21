@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PizzaRequest;
+use App\Models\Pizzas;
 use App\Service\PizzaService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
@@ -19,10 +20,10 @@ class PizzaController extends Controller
         $pizzasDatabase = new PizzaService();
         $pizzas = $pizzasDatabase->getListPizzas($request);
 
-        $mensagemDelete = $request->session()->get('mensagemDelete');
-        $mensagemInfo = $request->session()->get('mensagemInfo');
+        $messageDelete = $request->session()->get('mensagemDelete');
+        $messageInfo = $request->session()->get('mensagemInfo');
 
-        return View::make('pizzaria/home', compact('pizzas', 'mensagemDelete', 'mensagemInfo'));
+        return View::make('pizzaria/home', compact('pizzas', 'messageDelete', 'messageInfo'));
 
     }
 
@@ -33,11 +34,11 @@ class PizzaController extends Controller
      */
     public function create(Request $request)
     {
-        $mensagem = $request->session()->get('mensagem');
+        $message = $request->session()->get('mensagem');
 
-        $mensagemErro = $request->session()->get('mensagemErro');
+        $messageErro = $request->session()->get('mensagemErro');
 
-        return View::make('pizzaria/create', compact('mensagem', 'mensagemErro'));
+        return View::make('pizzaria/create', compact('message', 'messageErro'));
 
     }
 
@@ -74,10 +75,11 @@ class PizzaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
-        return "edit";
-
+        $pizzas = new PizzaService();
+        $pizzas->editPizzaInDatabase($request);
+        
     }
 
     /**

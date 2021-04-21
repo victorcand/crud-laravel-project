@@ -28,4 +28,13 @@ class PizzaRepository
         return;
 
     }
+
+    public static function editPizza($id,$newName,$newPrice,$newDescription)
+    {
+        $pizza = Pizzas::find($id);
+        $pizza->pizza_name = $newName;
+        $pizza->pizza_price = $newPrice;
+        $pizza->pizza_description = $newDescription;
+        $pizza->save();
+    }
 }
