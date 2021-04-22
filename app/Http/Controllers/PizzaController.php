@@ -6,6 +6,7 @@ use App\Http\Requests\PizzaRequest;
 use App\Models\Pizzas;
 use App\Service\PizzaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class PizzaController extends Controller
@@ -17,12 +18,13 @@ class PizzaController extends Controller
      */
     public function index(Request $request)
     {
+        
         $pizzasDatabase = new PizzaService();
         $pizzas = $pizzasDatabase->getListPizzas($request);
-
-        $messageDelete = $request->session()->get('mensagemDelete');
-        $messageInfo = $request->session()->get('mensagemInfo');
-
+        
+        $messageDelete = $request->session()->get('messageDelete');
+        $messageInfo = $request->session()->get('messageInfo');
+        
         return View::make('pizzaria/home', compact('pizzas', 'messageDelete', 'messageInfo'));
 
     }
@@ -34,9 +36,9 @@ class PizzaController extends Controller
      */
     public function create(Request $request)
     {
-        $message = $request->session()->get('mensagem');
+        $message = $request->session()->get('message');
 
-        $messageErro = $request->session()->get('mensagemErro');
+        $messageErro = $request->session()->get('messageErro');
 
         return View::make('pizzaria/create', compact('message', 'messageErro'));
 
@@ -58,18 +60,6 @@ class PizzaController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        return "show";
-
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -79,20 +69,23 @@ class PizzaController extends Controller
     {
         $pizzas = new PizzaService();
         $pizzas->editPizzaInDatabase($request);
-        
+
+        return redirect()->route('list_pizzas');
     }
 
     /**
-     * Update the specified resource in storage.
+     * Filter bar
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return void
      */
-    public function update(Request $request, $id)
+    public function search(Request $request)
     {
-        return "update";
+        $pizzasFilter = new PizzaService();
+        
+        $pizzas = $pizzasFilter->getfilterSearchPizza($request);
 
+        return View::make('pizzaria/home', compact('pizzas'));
     }
 
     /**

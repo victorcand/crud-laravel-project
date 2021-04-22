@@ -29,12 +29,24 @@ class PizzaRepository
 
     }
 
-    public static function editPizza($id,$newName,$newPrice,$newDescription)
+    public static function editPizza($id, $newName, $newPrice, $newDescription): void
     {
         $pizza = Pizzas::find($id);
         $pizza->pizza_name = $newName;
         $pizza->pizza_price = $newPrice;
         $pizza->pizza_description = $newDescription;
         $pizza->save();
+
+        return;
     }
+
+    public static function getFilter($request): ?Collection
+    {
+        $search = $request->search;
+        return Pizzas::where('pizza_name', 'like', '%' . $search . '%')
+            ->orWhere('pizza_price', 'like', '%' . $search . '%')
+            ->orWhere('pizza_description', 'like', '%' . $search . '%')->get();
+
+    }
+
 }

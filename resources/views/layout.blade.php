@@ -27,10 +27,12 @@
                 </div>
                 <div class="nav-search">
 
-                    <form action="#" method="get">
-                        <div class="search">
-                            <input type="text" name="search">
-                            <button class="btn-search">Buscar</button>
+                    <form action="{{route('filter_pizza')}}" method="get">
+                        <div class="input-group">
+                            <input type="search" class="form-control" name="search">
+                            <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                            </span>
                         </div>
 
                     </form>

@@ -5,26 +5,21 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgb(235, 235, 235);
+    background-color: rgb(247, 247, 247);
     box-shadow: 1px 1px 2px 1px #6868688a;
 
-}
-
-.card-home{
-    padding: 10px;
-    display: flex;
 }
 
 .card{
-    margin: 20px;
+    margin: 10px;
     background-color: rgb(235, 235, 235);
     box-shadow: 1px 1px 2px 1px #6868688a;
     flex-basis: 30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
+.card-boddy{
+    padding: 10px 16px;
+}
 
 .btn-row{
     display: flex;
@@ -48,4 +43,8 @@
     flex-direction: column;
     height: calc(100vh - 105px);
     
+}
+
+.card{
+    margin: 10px 22px;
 }

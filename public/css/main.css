@@ -47,7 +47,6 @@ body{
 
 .conteudo-home{
     position: relative;
-    height: calc(100vh - 105px);
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
