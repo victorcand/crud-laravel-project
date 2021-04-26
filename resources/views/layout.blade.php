@@ -63,6 +63,9 @@
 
     </main>
 
+    <footer class="rodape">
+        <span>Desenvolvido por Victor {{date('Y')}}</span>
+    </footer>
 </body>
 
 </html>
