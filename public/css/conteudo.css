@@ -10,7 +10,7 @@
 }
 
 .card{
-    margin: 10px 22px;
+    margin: 30px 20px 5px 32px;
     background-color: rgb(235, 235, 235);
     box-shadow: 1px 1px 2px 1px #6868688a;
     flex-basis: 30%;
