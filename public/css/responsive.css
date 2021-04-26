@@ -1,0 +1,83 @@
+/* RESPONSIVO */
+
+@media (min-width: 774px){
+    body{
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        grid-template-rows: 70px 1fr;
+        grid-template-columns: 170px 1fr;
+        grid-template-areas: 
+        "cabecalho cabecalho "
+        "menu-lateral principal" 
+        "menu-lateral principal" ;
+    }
+    .menu-lateral{
+        visibility: hidden;
+    }
+
+}
+
+@media (max-width: 605px){
+    body{
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        grid-template-rows: 70px 1fr;
+        grid-template-columns: 125px 1fr;
+        grid-template-areas: 
+        "cabecalho cabecalho "
+        "menu-lateral principal" 
+        "menu-lateral principal" ;
+    }
+}
+
+@media (max-width: 1126px){
+    .card{
+        margin: 10px 22px;
+        background-color: rgb(235, 235, 235);
+        box-shadow: 1px 1px 2px 1px #6868688a;
+        flex-basis: 38%;
+    }
+ 
+}
+
+@media (max-width: 691px){
+    .card{
+        margin: 10px 22px;
+        background-color: rgb(235, 235, 235);
+        box-shadow: 1px 1px 2px 1px #6868688a;
+        flex-basis: 40%;
+    }
+ 
+}
+
+@media (max-width: 773px){
+    .card{
+        margin: 10px 22px;
+        background-color: rgb(235, 235, 235);
+        box-shadow: 1px 1px 2px 1px #6868688a;
+        flex-basis: 42%;
+    }
+ 
+}
+
+@media (max-width: 733px){
+    .card{
+        margin: 10px 22px;
+        background-color: rgb(235, 235, 235);
+        box-shadow: 1px 1px 2px 1px #6868688a;
+        flex-basis: 100%;
+    }
+ 
+}
+
+@media (max-width: 773px){
+    div.nav-btn{
+        visibility: hidden;
+    }
+    .nav-search{
+        position: absolute;
+    }
+}
+

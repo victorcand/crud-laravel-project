@@ -75,22 +75,6 @@ body{
     z-index: 1;
 }
 
-@media (min-width: 774px){
-    body{
-        height: 100vh;
-        margin: 0;
-        display: grid;
-        grid-template-rows: 70px 1fr;
-        grid-template-columns: 170px 1fr;
-        grid-template-areas: 
-        "cabecalho cabecalho "
-        "menu-lateral principal" 
-        "menu-lateral principal" ;
-    }
-    .menu-lateral{
-        visibility: hidden;
-    }
 
-}
 
 
