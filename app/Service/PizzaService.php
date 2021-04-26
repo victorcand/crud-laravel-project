@@ -46,9 +46,10 @@ class PizzaService
         $newDescription = $request->pizza_description;
 
         return PizzaRepository::editPizza($request->id, $newName, $newPrice, $newDescription);
+
     }
 
-    public function getfilterSearchPizza($request)
+    public function getfilterSearchPizza($request): ?Collection
     {
         return PizzaRepository::getFilter($request);
         

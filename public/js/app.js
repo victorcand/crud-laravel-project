@@ -17,13 +17,13 @@ function toggleInput(pizzaId) {
 
 function editPizza(pizzaId) {
     let formData = new FormData()
+    
     const pizzaName = document.querySelector(`#name`).value;
     const pizzaPrice = document.querySelector(`#price`).value;
     const pizzaDescription = document.querySelector(`#description`).value;
     const token = document.querySelector('input[name="_token"]').value;
     
-
-
+    
     formData.append('pizza_name', pizzaName);
     formData.append('pizza_price', pizzaPrice);
     formData.append('pizza_description', pizzaDescription);

@@ -6,7 +6,7 @@
 }
 
 img{
-    width: 130px;
+    width: 160px;
     height: 60px;
     margin-left: 5px;
 }
@@ -16,29 +16,33 @@ body{
     height: 100vh;
     margin: 0;
     display: grid;
-    grid-template-rows: 70px 1fr 35px;
-    grid-template-columns: 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 170px 1fr;
     grid-template-areas: 
-    "cabecalho"
-    "principal" 
-    "rodape";
+    "cabecalho cabecalho "
+    "menu-lateral principal" 
+    "menu-lateral principal" ;
 }
 
+/* CABEÇALHO DA PAGINA */
 .cabecalho{
     grid-area: cabecalho;
-    background-color: #00263f;
+    background-color: #07314d;
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.637);
+    z-index: 0;
 }
 
+/* CONTEUDO DA PAGINA */
 .principal{
     grid-area: principal;
-    background-color: #ffffff; 
+    background-color: #ffffff;
     
 }
 
 .conteudo-form{
     position: relative;
     height: 100%;
-    padding: 20px;
+    padding: 10px;
     overflow-y: scroll;
     display: flex;
     align-items: center;
@@ -51,14 +55,42 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-}
-
-.rodape{
-    grid-area: rodape;
-    background-color: #00263f;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgb(205, 233, 255);
     
 }
+
+.section-conteudo{
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px);
+    
+}
+
+/* MENU LATERAL DA PAGINA */
+.menu-lateral{
+    color: white;
+    grid-area: menu-lateral;
+    background-color: #07314d;
+    padding-top: 20px;
+    box-shadow: 0px 2px 1px 2px rgba(0, 0, 0, 0.404);
+    z-index: 1;
+}
+
+@media (min-width: 774px){
+    body{
+        height: 100vh;
+        margin: 0;
+        display: grid;
+        grid-template-rows: 70px 1fr;
+        grid-template-columns: 170px 1fr;
+        grid-template-areas: 
+        "cabecalho cabecalho "
+        "menu-lateral principal" 
+        "menu-lateral principal" ;
+    }
+    .menu-lateral{
+        visibility: hidden;
+    }
+
+}
+
+
