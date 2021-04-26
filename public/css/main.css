@@ -70,10 +70,6 @@ body{
     
 }
 
-/* MENU LATERAL DA PAGINA */
-.menu-lateral{
-    display: none;
-}
 
 .rodape{
     grid-area: rodape;

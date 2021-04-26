@@ -34,6 +34,13 @@
     }
 }
 
+@media (min-width: 775px){
+
+    .menu-lateral{
+        display: none;
+    }
+}
+
 @media (max-width: 605px){
     body{
         height: 100vh;
