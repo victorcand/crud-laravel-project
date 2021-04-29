@@ -2,16 +2,15 @@
 
 namespace App\Service;
 
-use App\Models\Pizzas;
 use App\Repositories\PizzaRepository;
 use Illuminate\Support\Collection;
 
 class PizzaService
 {
 
-    public function getListPizzas($request): ?Collection
+    public function getPizzas($request): ?Collection
     {
-        $pizzas = PizzaRepository::getListPizzasInDatabase();
+        $pizzas = PizzaRepository::getListPizzas();
 
         if (count($pizzas) == 0) {
             $messageInfo = $request->session()->flash('messageInfo', 'Não há pizza cadastrada!');

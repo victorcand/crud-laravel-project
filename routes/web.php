@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('list_pizzas');
 });
 
 Route::get('/pizzaria', [PizzaController::class, 'index'])->name('list_pizzas');

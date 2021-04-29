@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 class PizzaRepository
 {
 
-    public static function getListPizzasInDatabase(): ?Collection
+    public static function getListPizzas(): ?Collection
     {
         return Pizzas::get()->sortByDesc('id');
 

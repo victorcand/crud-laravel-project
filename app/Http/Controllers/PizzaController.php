@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PizzaRequest;
-use App\Models\Pizzas;
 use App\Service\PizzaService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class PizzaController extends Controller
@@ -20,7 +18,7 @@ class PizzaController extends Controller
     {
         
         $pizzasDatabase = new PizzaService();
-        $pizzas = $pizzasDatabase->getListPizzas($request);
+        $pizzas = $pizzasDatabase->getPizzas($request);
         
         $messageDelete = $request->session()->get('messageDelete');
         $messageInfo = $request->session()->get('messageInfo');
