@@ -29,20 +29,20 @@
                         <span class="fs-6" id="name-pizza-{{ $pizza->id }}">
 
                             <h2 class="fs-3 text-center card-header">Nome da Pizza</h2>
-                            <div class="card-boddy text-secondary">
+                            <div class="card-boddy text-secondary" id="name-test-{{$pizza->pizza_name}}">
                                 <p class="text-decoration-underline fs-4 fw-bolder text-uppercase card-text text-center">
                                     {{ $pizza->pizza_name }}
                                 </p>
                             </div>
                             <div class="card-boddy text-secondary">
                                 <h4>Preço</h4>
-                                <p class=" card-text">
+                                <p class=" card-text" id="price-{{ $pizza->pizza_price }}">
                                     {{ 'R$ ' . number_format($pizza->pizza_price, 2, ',', '.') }}
                                 </p>
                             </div>
                             <div class="card-boddy text-secondary">
                                 <h4>Descrição da pizza</h4>
-                                <p class=" card-text" >
+                                <p class=" card-text" id="description-{{ $pizza->pizza_description }}">
                                     {{ $pizza->pizza_description }}</p>
                             </div>
 

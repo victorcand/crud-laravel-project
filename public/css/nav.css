@@ -5,11 +5,9 @@
     align-items: center;
 }
 
-
-
 .nav-right{
     display: flex;
-    margin-right: 10px;
+    flex-direction: row;
 }
 
 .nav-btn{
@@ -40,15 +38,15 @@
     text-align: center;
     font-size: 16px;
     font-weight: 500;
+    margin: 5px;
+    
 }
 
 .btn-nav:hover{
     box-shadow: 0px 0px 5px 1px rgb(0, 153, 255);
-    background-color: rgb(78, 125, 255);
     font-weight: 400;
     transition: 0.5s;
 }
-
 
 
 .btn-search{
