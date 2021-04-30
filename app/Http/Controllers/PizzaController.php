@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PizzaRequest;
-use App\Models\Pizzas;
+use App\Repositories\PizzaRepository;
 use App\Service\PizzaService;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
 
 class PizzaController extends Controller
@@ -18,14 +17,12 @@ class PizzaController extends Controller
      */
     public function index(Request $request)
     {
-        
         $pizzasDatabase = new PizzaService();
-        $pizzas = $pizzasDatabase->getListPizzas($request);
-        
+        $pizzas = $pizzasDatabase->getPizzas($request);
         $messageDelete = $request->session()->get('messageDelete');
         $messageInfo = $request->session()->get('messageInfo');
-        
-        return View::make('pizzaria/home', compact('pizzas', 'messageDelete', 'messageInfo'));
+        $message = $request->session()->get('message');
+        return View::make('pizzaria/home', compact('pizzas','message','messageDelete', 'messageInfo'));
 
     }
 
@@ -37,9 +34,7 @@ class PizzaController extends Controller
     public function create(Request $request)
     {
         $message = $request->session()->get('message');
-
         $messageErro = $request->session()->get('messageErro');
-
         return View::make('pizzaria/create', compact('message', 'messageErro'));
 
     }
@@ -54,7 +49,6 @@ class PizzaController extends Controller
     {
         $pizza = new PizzaService();
         $pizza->createPizzaByForm($request);
-
         return redirect()->route('create_pizza');
 
     }
@@ -65,14 +59,26 @@ class PizzaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Request $request)
+    public function edit(int $id)
     {
-        $pizzas = new PizzaService();
-        $pizzas->editPizzaInDatabase($request);
+        $pizza = PizzaRepository::getPizza($id);
+        return View::make('pizzaria/create', compact('pizza'));
 
-        return redirect()->route('list_pizzas');
     }
 
+    /**
+     * Update the data of a registered pizza
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(int $id, PizzaRequest $request)
+    {
+        $pizza = new PizzaService();
+        $pizza->updatePizzaById($id, $request);
+        return redirect()->route('list_pizzas');
+
+    }
     /**
      * Filter bar
      *
@@ -82,10 +88,9 @@ class PizzaController extends Controller
     public function search(Request $request)
     {
         $pizzasFilter = new PizzaService();
-        
         $pizzas = $pizzasFilter->getfilterSearchPizza($request);
-
         return View::make('pizzaria/home', compact('pizzas'));
+
     }
 
     /**
@@ -98,7 +103,6 @@ class PizzaController extends Controller
     {
         $deletePizza = new PizzaService();
         $deletePizza->deletePizzaInListPizzas($request);
-
         return redirect()->route('list_pizzas');
 
     }
