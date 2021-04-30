@@ -25,7 +25,6 @@ class PizzaRepository
     {
         $pizza = new Pizzas();
         $pizza->where('id', $request->id)->delete();
-
         return;
 
     }
@@ -45,6 +44,7 @@ class PizzaRepository
         ]);
 
         return;
+        
     }
 
     public static function getFilter(Request $request): ?Collection

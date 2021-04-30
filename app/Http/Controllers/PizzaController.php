@@ -35,7 +35,6 @@ class PizzaController extends Controller
     {
         $message = $request->session()->get('message');
         $messageErro = $request->session()->get('messageErro');
-        
         return View::make('pizzaria/create', compact('message', 'messageErro'));
 
     }
@@ -77,7 +76,6 @@ class PizzaController extends Controller
     {
         $pizza = new PizzaService();
         $pizza->updatePizzaById($id, $request);
-    
         return redirect()->route('list_pizzas');
 
     }

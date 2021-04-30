@@ -50,11 +50,12 @@ class PizzaService
             return $request->session()->flash('messageErro', 'Preencha os dados corretamente!');
         }
 
-        PizzaRepository::updatePizza($id,$newName,$newPrice,$newDescription);    
+        $pizza = PizzaRepository::updatePizza($id,$newName,$newPrice,$newDescription);    
         
         $request->session()->flash('message', 'Alteração realizada com sucesso!');
 
         return;
+
     }
 
     public function getfilterSearchPizza(Request $request): ?Collection
